@@ -1,1 +1,36 @@
-﻿“Patterns of Constructions from the Russian Constructicon”Anna Endresen, UiT The Arctic University of Norway*Laura A. Janda, UiT The Arctic University of NorwayAbstractWe present a case study of grammatical constructions and how their function in a single language (Russian) can be captured through semantic and syntactic classification. Since 2016 an on-going joint project of UiT The Arctic University of Norway and the Higher School of Economics in Moscow has been collecting and analyzing multiword grammatical constructions of Russian. The main product is the Russian Constructicon (http://spraakbanken.gu.se/karp/#?mode=konstruktikon-rus), which with over one thousand constructions (and more being continuously added), is arguably the largest openly available constructicon resource for any language. The combination of this large size with depth of analysis, containing both syntactic and semantic tags, makes it possible to view the interrelation of constructions as families and discover trends in their behavior. Our annotation includes sixty-four semantic tags, whose frequency varies, with three tags that are by far more frequent than all the rest, accounting for 42% of the entire inventory of the Russian Constructicon. These three semantic types are Assessment, Attitude, and Intensity, all of which convey a speaker’s evaluation of a topic, in contrast to most of the other tags (such as Time, Manner, and Comparison). Secondary semantic tags reveal that negative evaluation among these most common semantic types is more than twice as frequent as positive evaluation. Examples of negative evaluations for these three types are: for Assesment NP-Nom (byt’) tak sebe, as in kartina tak sebe ‘the painting is so-so [lit. thus self]’; for Attitude s Pron-Gen xvatit, as in s menja xvatit ‘I’m fed up [lit. from me enough]’; for Intensity užasno XP, as in užasno skučno ‘extremely [lit. terribly] boring’. In terms of syntax, the most frequent syntactic types of constructions in the Russian Constructicon are Clausal constructions (constituting an independent clause like s Pron-Gen xvatit) and Adverbial constructions (that syntactically function as an adverb like užasno XP). Our semantic and syntactic classification of this large body of Russian constructions makes it possible to postulate a pattern of grammatical constructions constituting a radial category with central and peripheral types.Keywords: constructions, constructicon, Russian, semantics, syntax, classification1. Introduction	What is construction grammar	What is a constructicon	What is the Russian constructicon (2200)	How to represent the relationships in the constructicon, so that it is not just a list. 	Language as a system, motivation from semantics, syntax, anchor words.	Intersection between tags.2. Hierarchical patterns within the constructicon	Families – Smaller groupings (2-9 constructions), for example subgroups 1, 2, 3 in Rationalistic evaluation (line 137 in Assessment)      Clusters – Attitude, Assessment – all items with the same tag are a cluster	Networks – biggest, contain several clusters: Evaluative Network of Comparison constructions: within comparison we have 5 clusters: similarity, equality, inequality, contrast, imitation. Within each cluster: 7 or 8 families.3. Overlapping patterns within the constructiconMeasure construction: quantification, distributive, additive, counting4. Visualization of hierarchical and overlapping relationships in the constructicon: Attitude and Assessment.	Figure showing calculation of what are the most frequent groups, showing that these two form the largest group. Individually follow Intensity.5. Conclusions
+“Patterns of Constructions from the Russian Constructicon”
+
+Anna Endresen, UiT The Arctic University of Norway
+*Laura A. Janda, UiT The Arctic University of Norway
+
+Abstract
+We present a case study of grammatical constructions and how their function in a single language (Russian) can be captured through semantic and syntactic classification. Since 2016 an on-going joint project of UiT The Arctic University of Norway and the Higher School of Economics in Moscow has been collecting and analyzing multiword grammatical constructions of Russian. The main product is the Russian Constructicon (http://spraakbanken.gu.se/karp/#?mode=konstruktikon-rus), which with over one thousand constructions (and more being continuously added), is arguably the largest openly available constructicon resource for any language. The combination of this large size with depth of analysis, containing both syntactic and semantic tags, makes it possible to view the interrelation of constructions as families and discover trends in their behavior. Our annotation includes sixty-four semantic tags, whose frequency varies, with three tags that are by far more frequent than all the rest, accounting for 42% of the entire inventory of the Russian Constructicon. These three semantic types are Assessment, Attitude, and Intensity, all of which convey a speaker’s evaluation of a topic, in contrast to most of the other tags (such as Time, Manner, and Comparison). Secondary semantic tags reveal that negative evaluation among these most common semantic types is more than twice as frequent as positive evaluation. Examples of negative evaluations for these three types are: for Assesment NP-Nom (byt’) tak sebe, as in kartina tak sebe ‘the painting is so-so [lit. thus self]’; for Attitude s Pron-Gen xvatit, as in s menja xvatit ‘I’m fed up [lit. from me enough]’; for Intensity užasno XP, as in užasno skučno ‘extremely [lit. terribly] boring’. In terms of syntax, the most frequent syntactic types of constructions in the Russian Constructicon are Clausal constructions (constituting an independent clause like s Pron-Gen xvatit) and Adverbial constructions (that syntactically function as an adverb like užasno XP). Our semantic and syntactic classification of this large body of Russian constructions makes it possible to postulate a pattern of grammatical constructions constituting a radial category with central and peripheral types.
+
+Keywords: constructions, constructicon, Russian, semantics, syntax, classification
+
+
+
+1. Introduction
+  What is construction grammar
+	What is a constructicon
+	What is the Russian constructicon (2200)
+	How to represent the relationships in the constructicon, so that it is not just a list. 
+	Language as a system, motivation from semantics, syntax, anchor words.
+	Intersection between tags.
+
+2. Hierarchical patterns within the constructicon
+	Families – Smaller groupings (2-9 constructions), for example subgroups 1, 2, 3 in Rationalistic evaluation (line 137 in Assessment)
+      Clusters – Attitude, Assessment – all items with the same tag are a cluster
+	Networks – biggest, contain several clusters: Evaluative 
+
+Network of Comparison constructions: within comparison we have 5 clusters: similarity, equality, inequality, contrast, imitation. Within each cluster: 7 or 8 families.
+
+3. Overlapping patterns within the constructicon
+
+Measure construction: quantification, distributive, additive, counting
+
+4. Visualization of hierarchical and overlapping relationships in the constructicon: Attitude and Assessment.
+	Figure showing calculation of what are the most frequent groups, showing that these two form the largest group. Individually follow Intensity.
+
+
+5. Conclusions
