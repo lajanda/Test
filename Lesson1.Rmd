@@ -1,0 +1,26 @@
+---
+title: "Lesson1"
+author: "mom"
+date: "5/6/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+```
+
+# ALT + COMMAND + i gives you a new code chunk:
+```{r second}
+#testing
+x <- c(1, 2, 3)
+```
+The mean of x is `r mean(x)`. <i>THIS IS ITALICS</i>.
+
+Here is a handy reference for tables:
+https://bookdown.org/yihui/rmarkdown-cookbook/kable.html
+
+[Here is a cheatsheet for R Markdown](https://rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf)
+
+
+
+
