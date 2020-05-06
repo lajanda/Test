@@ -21,6 +21,12 @@ https://bookdown.org/yihui/rmarkdown-cookbook/kable.html
 
 [Here is a cheatsheet for R Markdown](https://rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf)
 
-
-
+# How to push changes to GitHub:
+Note to self: This only works if you have cloned the repository to your computer and are pushing to the same repository on GitHub. The advantage is that you can create code in the R Studio environment and then push to GitHub.
+1) Save .Rmd file 
+From Terminal:
+2) cd /Users/lja001/Documents/Test
+3) git add Lesson1.Rmd
+4) git commit -m 'add R Markdown'
+5) git push
 
