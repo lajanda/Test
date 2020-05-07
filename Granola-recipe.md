@@ -16,7 +16,7 @@
 - 1+ cup walnuts
 - 1+ cup pecans
 
-##Preparation
+## Preparation
 - Heat oven to 135 degrees C/275 degrees F
 - Mix all dry ingredients
 - Pour in wet ingredients and mix thoroughly. 
