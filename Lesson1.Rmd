@@ -30,3 +30,5 @@ From Terminal:
 4) git commit -m 'add R Markdown'
 5) git push
 
+# Presentation from Athanasia Mowinckel:
+[The slides and source code can be found here:](https://github.com/rladies/meetup-presentations_oslo/tree/master/2020-05-11-rmarkdown_like_a_boss)
