@@ -32,3 +32,6 @@ From Terminal:
 
 # Presentation from Athanasia Mowinckel:
 [The slides and source code can be found here:](https://github.com/rladies/meetup-presentations_oslo/tree/master/2020-05-11-rmarkdown_like_a_boss)
+
+# Alison Hills presentation on Xaringan:
+[xaringan](https://arm.rbind.io/slides/xaringan.html#1)
