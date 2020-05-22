@@ -1,0 +1,198 @@
+---
+title: "Correlation"
+author: "Laura A. Janda"
+date: "5/15/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+## Background
+This example comes from an article by Lene Antonsen and Laura
+A. Janda: Davvisámi earutkeahtes oamasteapmi [North Saami inalienable possession], under submission for publication in *Sámi dieđalaš áigečála*.
+
+In this script, we want to find out whether there 
+is a relationship between frequency and the retention of 
+the North Saami possessive suffix construction (NPx) in comparison with the innovative reflexive genitive pronoun possessive construction (Refl).
+
+A possible hypothesis is that high-frequency nouns might be 
+more likely to retain the NPx construction rather than
+using the innovative Refl construction. 
+In that case we would expect to find a strong positive correlation between the proportion of NPx construction and the frequency of the noun.
+
+However, we find that 
+frequency does not have a significant effect in this study. The rest of the study (not reflected here) focuses on the effects of semantics on the competition between NPx and Refl.
+
+We will input the data on NPx and Refl constructions from a 
+corpus of N. Saami newspapers (approx 10M words).
+We will calculate the proportion of NPx/Refl
+and we will log transform the frequency and then 
+visualize our data.
+
+We will test for a correlation between the proportion of NPx
+and log-transformed frequency.
+
+We will also apply tests for normality, homoscedasticity, and autocorrelation.
+
+## Getting started
+
+First we load the tidyverse package:
+```{r Load the Library, message=FALSE, warning=FALSE}
+library(tidyverse)
+```
+
+## The data
+
+Next we read in the database and take a look at it:
+```{r Read the data}
+saami_poss <- read_csv('saami_poss.csv')
+saami_poss
+summary(saami_poss)
+```
+### This database has 737 rows and 4 columns:
+- Lemma: these are all the nouns that are found in at least 5 possessive constructions in the corpus.
+- NPx: This is the number of NPx constructions observed for the given Lemma.
+- Refl: This is the number of Refl constructions observed for the given Lemma.
+- AbsTotal: This is the total frequency of the given Lemma in the corpus.
+
+## Manipulating the data
+First we need to add a column with the proportion of NPx to all possessive constructions (NPx + Refl).
+```{r Add a column with the proportion of NPx}
+saami_poss$PropNPx  <-  saami_poss$NPx / (saami_poss$NPx + saami_poss$Refl)
+saami_poss
+```
+Next we need to log transform the frequency of the lemmas and put those in a new column too.
+### Question: Do you remember why we need to log transform the frequency of the lemmas?
+```{r}
+saami_poss$LogAbsTotal  <-  log(saami_poss$AbsTotal)
+saami_poss
+```
+
+
+## Visualization
+Now we will make a scatterplot with plot(x, y), where x is the log-transformed frequency and y is the proportion of NPx.
+```{r}
+plot(saami_poss$LogAbsTotal, saami_poss$PropNPx, xlab = "Log Transformed Word Frequency", ylab = "Proportion NPx")
+```
+
+If there was a strong positive correlation, we would see the points in the plot lined up along the diagonal from the bottom left to the top right.
+This plot does not suggest a strong correlation of any kind.
+
+We want to add a line of best fit to show what the correlation looks like. A regression equation computes the line of best fit. 
+
+```{r}
+saami_poss.lm <- lm(saami_poss$PropNPx ~ saami_poss$LogAbsTotal)
+saami_poss.lm
+```
+### Important Note
+Watch out for the order of factors:
+
+* a regression predicts y as a function of x, so y ~ x
+* therefore the order of factors is the opposite as in the plot(x, y)
+
+This gives us the intercept and slope of the regression line, which we will now add to the plot.
+
+```{r}
+plot(saami_poss$LogAbsTotal, saami_poss$PropNPx, xlab = "Log Transformed Word Frequency", ylab = "Proportion NPx")
+abline(saami_poss.lm)
+```
+We see that there is no strong evidence of a correlation.
+Instead, there is a very weak negative correlation.
+
+## Tests related to the assumptions of correlation
+Before running the correlation, we need to check for 
+normality, homoscedasticity, and autocorrelation,
+so we will run three tests for these issues. Note that these are scores that should be reported alongside correlation outcomes. Failing these tests does not mean that you cannot perform correlation. The point is to be honest about how well the data conforms
+to the assumptions of correlation.
+
+### Test for normality
+First we will perform Mardia’s test to test for normality.
+The null hypothesis for this test is that the data is normally distributed, so we hope to find a p-value that is not lower than 0.05.
+This test looks at both “kurtosis” (the arch of the distribution) and “skewness” (the balance of the distribution).
+
+We need to install and load the package MVN 
+(which stands for multivariate normality) and run Mardia’s test.
+```{r Test for normality, message=FALSE, warning=FALSE}
+library(MVN)
+result <- mvn(data = cbind(saami_poss$LogAbsTotal, saami_poss$PropNPx), mvnTest = "mardia")
+result$multivariateNormality
+```
+
+The distribution is skewed, but we got a “YES” result for the kurtosis of the distribution, which means that we cannot reject the null hypothesis that we have a normal distribution.
+This means that we can proceed.
+Recall that we are not so constrained by normality
+if our sample size exceeds 30. 
+Our sample size is 737.
+
+Remember why we log transformed the frequency data?
+Try running the test for normality on the frequencies 
+without log transformation.
+```{r, Test for normality without log transformation}
+result <- mvn(data = cbind(saami_poss$AbsTotal, saami_poss$PropNPx), mvnTest = "mardia")
+result$multivariateNormality
+```
+Here we see that without log transformation, we
+completely fail the test for normality.
+
+### Test for homoscedasticity
+In order to run the ncvTest() for homoscedasticity,
+we need to load the package car.
+```{r Test for homoscedasticity, message=FALSE, warning=FALSE}
+library(car)
+ncvTest(saami_poss.lm)
+```
+We failed this test.
+That is probably because the distribution at the low end
+of the y-axis is very thick. 
+In particular, there are
+a lot of words that appear only in the Refl construction, 
+and thus have a zero NPx/Refl proportion, and this 
+runs across all values on the x-axis.
+
+### Test for autocorrelation
+
+```{r Test for autocorrelation}
+durbinWatsonTest(saami_poss.lm)
+```
+
+The value of the D-W statistic always lies between 0 and 4. 
+If the Durbin–Watson statistic is substantially less than 2, there is evidence of positive serial correlation. 
+As a rough rule of thumb, if Durbin–Watson is less than 1.0, there may be cause for alarm.
+The D-W Statistic for our data is very close to 2 (1.83209), which means that there is little chance of autocorrelation.
+In other words, we passed this test.
+
+## Testing for correlation
+
+We can now run the correlation test to go with our plot.
+
+```{r Pearson Correlation test}
+cor.test(saami_poss$LogAbsTotal, saami_poss$PropNPx)
+```
+
+This shows a significant but very weak correlation,
+as we would expect from the plot.
+
+Since our data is not normally distributed, we can also try non-parameteric tests for correlation, and both of these are available as alternatives in the cor.test() function.
+
+### Spearman's rank correlation
+
+```{r Spearman Correlation test}
+cor.test(saami_poss$LogAbsTotal, saami_poss$PropNPx, method = "spearman")
+```
+
+Notice that we get a more conservative estimate of the correlation and 
+that we get a warning message because 
+Spearman’s test cannot 
+deal well with ties. 
+Many of our items have the same value (ties) for proportion of NPx, such as zero or 1, and that makes Spearman's correlation test inappropriate.
+
+### Kendall's rank correlation
+
+Kendall’s tau is a better non-parametric alternative for our data.
+
+```{r Kendall Correlation test}
+cor.test(saami_poss$LogAbsTotal, saami_poss$PropNPx, method = "kendall")
+```
+
+Now we have definitively failed to find a strong positive correlation.
