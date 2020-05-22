@@ -46,8 +46,8 @@ library(tidyverse)
 
 Next we read in the database and take a look at it:
 ```{r Read the data}
-saami_poss <- read_csv('saami_poss.csv')
-saami_poss
+saami_poss <- read.csv('saami_poss.csv')
+head(saami_poss)
 summary(saami_poss)
 ```
 ### This database has 737 rows and 4 columns:
